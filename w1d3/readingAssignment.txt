@@ -1,0 +1,33 @@
+1\ What happens when you forget a break while using switch statement? 
+    after it run all the statements of that block, it continue to checking the next
+    case and it will execute all the statements of that case if the expression true.
+
+2\ What will be the output of running following code? 
+    var foo = 0; 
+    switch (foo) { 
+      case -1: 
+        console.log('negative 1'); 
+    break; 
+    case 0:  
+        console.log(0); 
+    case 1:  
+        console.log(1); 
+    break;  
+    case 2: 
+        console.log(2); 
+    break; 
+    default: 
+        console.log('default'); 
+    } 
+    output:
+    0
+    1
+3. Will output change if value of foo is a ‘0’ (0 in quotes) instead? 
+    Yes it will change.
+    zero in quotes will change the data type of variable foo from number to string.
+    This will let the comparison in cases (numbers vs string) always false. 
+    which means no one of the above cases will execute. For that, the only one that will execute
+    is default block. So, the output will be:
+    default
+
+
