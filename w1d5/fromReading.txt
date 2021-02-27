@@ -1,0 +1,16 @@
+1. What are alternatives to default parameters?
+ it will be undefined. even if we call the function without it "FunctionName()".
+ for example:
+    function f(num){return num;}
+    console.log(f());
+we call function f without send any value to its paramerter. in this case the parameter
+num didn't assigned or intialize. for that, the output will be undefined
+
+2. What are things you should consider while naming a function?
+    - the name must start with a character (not a number and not a symbol);
+    - must not contains spaces.
+    - the name must be a unige in the all scope that contains the function. 
+        so, can not be cofusing by another one.
+    - don't allow to use any keyword
+    -do not allow to use sample $
+    - should follow camelCase 
