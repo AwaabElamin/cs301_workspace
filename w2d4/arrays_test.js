@@ -71,15 +71,50 @@ describe("rotateNRight", function () {
 
 describe("exp", function () {
     it("tests exp Balanced", function () {
-        assert.deepStrictEqual(arrays.exp(["{","(",")","}"]), "Balanced");
+        assert.deepStrictEqual(arrays.exp(["{", "(", ")", "}"]), "Balanced");
     });
 
     it("tests exp Not Balanced", function () {
-        assert.deepStrictEqual(arrays.exp(["{","(","{","}"]), "Not Balanced");
+        assert.deepStrictEqual(arrays.exp(["{", "(", "{", "}"]), "Not Balanced");
     });
 
     it("tests exp Not Balanced", function () {
-        assert.deepStrictEqual(arrays.exp(["4","(","{","}"]), "Not Balanced");
+        assert.deepStrictEqual(arrays.exp(["4", "(", "{", "}"]), "Not Balanced");
+    });
+});
+
+describe("mergeTwoSortedArray", function () {
+    it("test with same length", function () {
+        let firstArray = [1, 3, 2];
+        let secondArray = [4, 6, 5];
+        let expectedArray = [1, 2, 3, 4, 5, 6];
+        let result = arrays.mergeTwoSortedArray(firstArray, secondArray);
+        assert.deepStrictEqual(expectedArray, result);
+    });
+    it("test with different length", function () {
+        let firstArray = [1, 3, 2];
+        let secondArray = [4, 6, 5, 7];
+        let expectedArray = [1, 2, 3, 4, 5, 6, 7];
+        let result = arrays.mergeTwoSortedArray(firstArray, secondArray);
+        assert.deepStrictEqual(expectedArray, result);
+    });
+});
+
+describe("reverse2String", function () {
+    it("Fox_Brown_Quick", function () {
+        assert.strictEqual(
+            arrays.reverse2String(["Quick", "Brown", "Fox"]),
+            "Fox_Brown_Quick"
+        );
+    });
+    it("4_3_2_1", function () {
+        assert.strictEqual(arrays.reverse2String([1, 2, 3, 4]), "4_3_2_1");
+    });
+});
+
+describe("enhancedIncludes", function () {
+    it("[1, 2, 3, 4, 2], 2 ]", function () {
+        assert.deepStrictEqual(arrays.enhancedIncludes([1, 2, 3, 4, 2], 2), [true, 1, 4,]);
     });
 });
 
@@ -98,25 +133,7 @@ describe("exp", function () {
 // });
 
 
-// describe("reverse2String", function () {
-//     it("Fox_Brown_Quick", function () {
-//         assert.strictEqual(
-//             arrays.reverse2String(["Quick", "Brown", "Fox"]),
-//             "Fox_Brown_Quick"
-//         );
-//     });
 
-//     it("4_3_2_1", function () {
-//         assert.strictEqual(arrays.reverse2String([1, 2, 3, 4]), "4_3_2_1");
-//     });
-// });
-
-
-// describe("enhancedIncludes", function () {
-//     it("[1, 2, 3, 4, 2], 2 ]", function () {
-//         assert.deepStrictEqual(arrays.enhancedIncludes([1, 2, 3, 4, 2], 2), [true, 1, 4,]);
-//     });
-// });
 
 
 // describe("Matrix", function () {

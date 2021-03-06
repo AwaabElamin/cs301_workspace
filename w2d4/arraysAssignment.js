@@ -96,30 +96,31 @@ function rotateNRight(arrayOfNumbers, numberOfRotate) {
  * @return {string} 'Balanced' or 'Not Balanced'
  */
 function exp(arr) {
-    if (arr.length % 2 == 0) {
-        let firstHalf = [];
-        for (let i = 0; i < arr.length / 2; i++) {
-            firstHalf.push(arr.shift());
-
-        }
-        for (let i = 0; i < arr.length; i++) {
-            let firstElement = firstHalf.pop();
-            let secondElement = arr.shift();
-            if ((firstElement === "{" || firstElement === "(")
-                && (secondElement === "}" || secondElement === ")")) {
-                if (firstElement === "{" && secondElement !== "}") {
-                    return "Not Balanced";
-                }
-                if (firstElement === "(" && secondElement !== ")") {
-                    return "Not Balanced";
-                }
-            } else {
+    let openSymbols = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "(" || arr[i] === "[" || arr[i] === "{") {
+            openSymbols.push(arr[i]);
+        } else if (arr[i] === ")" || arr[i] === "]" || arr[i] === "}") {
+            if (openSymbols.length === 0) {
                 return "Not Balanced";
+            } else {
+                if (openSymbols[openSymbols.length - 1] === "(" && arr[i] !== ")") {
+                    return "Not Balanced";
+                } else if (openSymbols[openSymbols.length - 1] === "[" && arr[i] !== "]") {
+                    return "Not Balanced";
+                } else if (openSymbols[openSymbols.length - 1] === "{" && arr[i] !== "}") {
+                    return "Not Balanced";
+                }
+                openSymbols.pop();
             }
-
         }
-        return "Balanced";
     }
+    if (openSymbols.length === 0) {
+        return "Balanced";
+    } else {
+        return "Not Balanced";
+    }
+
 }
 
 /**
@@ -137,14 +138,55 @@ function mergeTwoSortedArray(firstArray, secondArray) {
     }
     let secondLength = secondArray.length;
     for (let i = 0; i < secondLength; i++) {
-        result.push(secondArray.shift());        
+        result.push(secondArray.shift());
     }
-    return result.sort((first,second) => first-second);
-   // return result;
-
-
+    return result.sort((first, second) => first - second);
 }
-module.exports = { isArrayEqual, addend, getMiddle, rotateLeft, rotateRight, rotateNRight, exp,mergeTwoSortedArray };
-let firstArray = [1,2,3,4];
-let secondArray = [6,10,7,8,9];
-console.log(mergeTwoSortedArray(firstArray,secondArray));
+
+/**
+ * Write a function that transforms a given array as following. 
+ * Use appropriate array methods.
+ *      Input (Array)                            Output (String)
+ * ['Quick', 'Brown', 'Fox']                    "Fox_Brown_Quick"
+ * @param {Array} arr is array that contains words
+ * @returns {string} return transformed words
+ */
+function reverse2String(arr) {
+    arr.reverse();
+    let result = "";
+    result = arr.shift();
+    while (arr.length != 0) {
+        result += "_" + arr.shift();
+    }
+    return result;
+}
+
+/**
+ * Write a JavaScript function named enhancedIncludes that takes two parameters, 
+ * an array, and a value to search in the array 
+ * and return an array result with three values.
+ *  a. First value is boolean representing if the search value exists in the array.
+ *  b. Second value is the first index of value found in the array or -1
+ *  c. Third value is the last index of value found in the array or -1.
+ * @param {array} arr contains elements
+ * @param {number} searchingValue to search in the array
+ * @returns {array} array contains {true|flase, indexNumber| -1, indexNumber|-1} 
+ */
+function enhancedIncludes(arr, searchingValue) {
+    let number = (item) => item === searchingValue;
+    let secondValue = arr.findIndex(number);
+    let isExist = false;
+    let lastIndex = -1;
+    if (secondValue > 0) {
+        isExist = true;
+       lastIndex = arr.indexOf(searchingValue,secondValue +1);
+    }
+    return [isExist,secondValue,lastIndex];
+}
+//let firstArray = [1, 2, 3,2];
+//let secondArray = [5, 9, 7, 6];
+//console.log(enhancedIncludes(firstArray,2));
+module.exports = {
+    isArrayEqual, addend, getMiddle, rotateLeft, rotateRight,
+    rotateNRight, exp, mergeTwoSortedArray, reverse2String, enhancedIncludes
+};
