@@ -1,4 +1,5 @@
 "use strict";
+
 /**
  * Write the code, one line for each action:
  *  a. Create an empty object car
@@ -81,16 +82,46 @@ function suffix(word1, word2) {
  * @param {string} str string of letters
  * @returns {string} return str with the first letter capital
  */
-function titleCase(str){
-    let words = str;
-    words = words.split(" ");
-    for (let word of words) {
-       word = word.split("");
-       word[0] = "s";
-        console.log(word);
+function titleCase(str) {
+    let words = str.split(" ");
+    for (let i = 0; i < words.length; i++) {
+        let temp = words[i].split("");
+        temp[0] = temp[0].toUpperCase();
+        words[i] = temp.join("");
     }
-
-    return words;
+    return words.join(" ");
 }
-module.exports = { countProperties, checkSpam, suffix, titleCase };
-console.log(titleCase("awaab elamin"));
+
+/**
+ * 
+ * @param {Array} users array of objects with two properties name and age
+ * @return {number} the average age
+ */
+function getAverageAge(users) {
+    let average = 0;
+    users.forEach(user => average += user.age);
+    // for (let i = 0; i < users.length; i++) {
+    //     average += users[i].age;        
+    // }
+    return average / users.length;
+}
+
+/**
+ * Write a swap function that takes two parameters of number type 
+ * and swap the values of the passed parameters. 
+ * @param {number} num1 first number
+ * @param {number} num2 second number
+ * @returns {undefined}
+ */
+// function swap(num1, num2) {
+//     let temp = num1;
+//     num1 = num2;
+//     num2 = temp;
+// }
+// let firstNumber = 5;
+// let secondNumber = 7;
+// console.log(firstNumber,secondNumber); // 5, 7
+// swap(firstNumber,secondNumber);
+// console.log(firstNumber,secondNumber);
+module.exports = { countProperties, checkSpam, suffix, titleCase, getAverageAge };
+//console.log(getAverageAge([{name:"abc", age:20},{name:"xyz", age:10}]));

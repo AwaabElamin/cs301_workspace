@@ -85,40 +85,36 @@ describe("suffix", function () {
 
 /*
 
-5.  Write a function named titleCase with one parameter named s. This function returns a copy of s but with the first letter of each word capitalized.
+5.  Write a function named titleCase with one parameter named s. 
+This function returns a copy of s but with the first letter of each word capitalized.
 
 */
 
-// describe("titleCase", function () {
-
-
-
-//     it(//write a test case
-
-
-
-//     );
-
-
-
-//     it(//write another test case
-
-
-
-//     );
-
-// });
+describe("titleCase", function () {
+    it("wiith 'awaaB elamin'",function(){
+        assert.strictEqual(str.titleCase("awaaB elamin"),"AwaaB Elamin");
+    });
+    it("with aWAAB elAmin",function(){
+        assert.strictEqual(str.titleCase("aWAAB elAmin"), "AWAAB ElAmin");
+    });
+});
 
 
 
 /*
 
-7.Write the function getAverageAge(users) that gets an array of objects with two properties name and age and returns the average age.
+7.Write the function getAverageAge(users) that gets an array of objects with two 
+properties name and age and returns the average age.
 
 Write a test for test case:  [{name:"abc", age:20},
 
 {name:"xyz", age:10}]
 
 expected:  15
-
 */
+describe("get average of age",function(){
+    it("check with age 10 and 20",function(){
+        const parameterValue = [{name:"abc", age:20}, {name:"xyz", age:10}];
+        assert.strictEqual(str.getAverageAge(parameterValue),15);
+    });
+});
