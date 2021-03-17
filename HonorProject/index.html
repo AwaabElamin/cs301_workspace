@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/main.css" type="text/css" rel="stylesheet">
+    <script src="./script/main.js" type="text/javascript"></script>
+    <title>Honor Project</title>
+</head>
+
+<body id="general">
+    <div id="page" class="pageWidth">
+        <header>
+            <h1>Salary Calculator</h1>
+        </header>
+        <main>
+            <table>
+                <tr>
+                    <td><label>Salary Amount</label></td>
+                    <td><input type="number" id="salaryAmount" /></td>
+                    <td><label>Per</label></td>
+                    <td>
+                        <select id="per">
+                            <option value="hourly">Hour</option>
+                            <option value="daily">Day</option>
+                            <option value="weekly">Week</option>
+                            <option value="biWeekly">Bi-Weekly</option>
+                            <option value="monthly">Month</option>
+                            <option value="yearly">year</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Hours per Day</label></td>
+                    <td><input type="number" id="hoursPerDay" min="0" max="12" /></td>
+                    <td><span id="errorHourPerDay"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Days per week</label></td>
+                    <td><input type="number" id="daysPerWeek" min="0" max="7" /></td>
+                    <td><span id="errordaysPerWeek"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Holidays per year</label></td>
+                    <td><input type="number" id="holidaysPerYear" min="0" max="365" /></td>
+                    <td><span id="errorHolidaysPerYear"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Vacation Days Per Year</label></td>
+                    <td><input type="number" id="vacationDaysPerYear" min="0" /></td>
+                    <td><span id="errorvacationDaysPerYear"></span></td>
+                </tr>
+            </table>            
+            <br>
+            <button id="btn">submit</button><br>
+            <label id=result></label>
+        </main>
+        <footer>
+            <p>Copyright &copy; 2019 <a href="http://Awaaab.com" target="_blank">Awaaab LLC</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
